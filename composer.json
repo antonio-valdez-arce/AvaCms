@@ -1,7 +1,8 @@
 {
     "name": "antonio-valdez-arce/ava-cms",
     "description": "Provides a simple admin panel based in ZF2. Useful for building a CMS for small to medium sites.",
-    "license": "",
+    "type": "library",
+    "license": "GPL-2.0+",
     "keywords": [
         "ava",
         "cms",
