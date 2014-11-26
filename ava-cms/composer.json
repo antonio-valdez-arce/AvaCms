@@ -21,11 +21,8 @@
         "zendframework/zendframework": "2.*"
     },
     "autoload": {
-        "psr-0": {
-            "AvaCms": "src/"
-        },
-        "classmap": [
-            "./"
-        ]
-    }
+        "psr-4": {
+            "AvaCms\\": "src/AvaCms"
+        }
+    },
 }
