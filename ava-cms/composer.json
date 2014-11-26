@@ -1,14 +1,31 @@
 {
-    "name": "zendframework/skeleton-application",
-    "description": "Skeleton Application for ZF2",
-    "license": "BSD-3-Clause",
+    "name": "antonio-valdez-arce/ava-cms",
+    "description": "Provides a simple admin panel based in ZF2. Useful for building a CMS for small to medium sites.",
+    "license": "",
     "keywords": [
-        "framework",
-        "zf2"
+        "ava",
+        "cms",
+        "zf2",
+        "module"
     ],
-    "homepage": "http://framework.zend.com/",
+    "homepage": "https://github.com/antonio-valdez-arce/ava-cms",
+    "authors": [
+        {
+            "name": "Antonio Valdez Arce",
+            "email": "a.valdez.arce@gmail.com",
+            "homepage": "http://odsamegorana.3manaties.com/"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zendframework": ">2.2.0rc1"
+        "zendframework/zendframework": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "AvaCms": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
     }
 }
