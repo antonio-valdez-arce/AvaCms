@@ -1,5 +1,5 @@
 <?php
-$settings = [
+$ava_cms_settings = [
 	'tables' => [
 	    'users' => [
 	       'name' => 'user',
@@ -21,5 +21,11 @@ $settings = [
 ];
 
 return array(
-    'ava_cms' => $settings,
+    'ava_cms' => $ava_cms_settings,
+    
+    'service_manager' => array(
+        'factories' => array(
+            'AvaCmsController'       => 'AvaCms\Service\CmsControllerFactory',
+        ),
+    ),
 );
