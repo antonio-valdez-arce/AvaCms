@@ -23,9 +23,16 @@ $ava_cms_settings = [
 return array(
     'ava_cms' => $ava_cms_settings,
     
+	'controllers' => array(
+		'factories' => array(
+			'AvaCmsController' => 'AvaCms\Service\CmsControllerFactory',
+		),
+	),
+    
     'service_manager' => array(
         'factories' => array(
-            'AvaCmsController'       => 'AvaCms\Service\CmsControllerFactory',
+			'AvaCmsBlocks' => 'AvaCms\Service\BlocksFactory',
+        	'AvaCmsTables' => 'AvaCms\Service\TablesFactory',
         ),
     ),
 );
