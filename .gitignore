@@ -1,4 +1,6 @@
 /.buildpath
 /.project
 /.settings
-/vendor/*
+/vendor/
+/composer.phar
+/composer.lock
