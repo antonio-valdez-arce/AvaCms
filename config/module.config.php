@@ -23,6 +23,25 @@ $ava_cms_settings = array(
 return array(
     'ava_cms' => $ava_cms_settings,
     
+    'router' => array(
+        'routes' => array(
+            'avacmsdefault' => array(
+				'type'    => 'Segment',
+				'options' => array(
+					'route'    => '/:block[/:action[/:id]]',
+						'constraints' => array(
+							'block' 	=> '[a-zA-Z][a-zA-Z0-9_-]*',
+							'action'    => '[a-zA-Z][a-zA-Z0-9_-]*',
+							'id'     	=> '[0-9]*',
+            			),
+						'defaults' => array(
+						    'action' => 'list',
+						),
+            		),
+            ),
+        ),
+    ),
+    
 	'controllers' => array(
 		'factories' => array(
 			'AvaCmsController' => 'AvaCms\Service\CmsControllerFactory',

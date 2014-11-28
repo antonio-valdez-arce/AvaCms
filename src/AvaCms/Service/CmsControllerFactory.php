@@ -9,7 +9,13 @@ class CmsControllerFactory implements FactoryInterface
 {
 	public function createService(ServiceLocatorInterface $serviceLocator)
 	{
-	    $config = $serviceLocator->get('config');
-		return new AbstractController();	    
+	    $tables = $serviceLocator->get('AvaCmsTables');
+	    $blocks = $serviceLocator->get('AvaCmsBlocks');
+	    
+	    $controller = new AbstractController();
+	    $controller->setTables($tables);
+	    $controller->setBlocks($blocks);
+		
+	    return new AbstractController();	    
 	}  
 }
