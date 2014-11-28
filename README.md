@@ -5,6 +5,9 @@ Introduction
 ------------
 Provides a simple admin panel based in ZF2. Useful for building a CMS for small to medium sites.
 
+NOTE:
+This is a work in progress. When it gets stable i will submit it to the ZF2 modules site.
+
 To Do:
 ------------
 * Implement authorization and RBAC modules 
