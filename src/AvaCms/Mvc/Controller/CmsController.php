@@ -6,10 +6,18 @@ use Zend\View\Model\ViewModel;
 use Zend\Mvc\MvcEvent;
 
 /**
- * AbstractController
+ * CmsController
  */
 class CmsController extends AbstractController 
 {
+    /**
+     * (non-PHPdoc)
+     * @see \AvaCms\Mvc\Controller\AbstractController::onDispatch()
+     */
+    public function onDispatch(MvcEvent $e)
+    {
+    	parent::onDispatch($e);
+    }
 	
 	/**
 	 * Action for listing records of the table.

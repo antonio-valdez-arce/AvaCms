@@ -33,14 +33,41 @@ abstract class AbstractController extends AbstractActionController
         return parent::onDispatch($e);
     }
 	
+    
+    /**
+     * Sets the tables configuration
+     * @param Config $tables
+     */
 	public function setTables( Config $tables )
 	{
 		$this->tables = $tables;    
 	}
 	
+	/**
+	 * Sets the bocks configuration
+	 * @param Config $blocks
+	 */
 	public function setBlocks( Config $blocks )
 	{
-		$this->tables = $blocks;
+		$this->blocks = $blocks;
+	}
+	
+	/**
+	 * Gets the tables configuration
+	 * @param Config $tables
+	 */
+	public function getTables()
+	{
+		return $this->tables;
+	}
+	
+	/**
+	 * Gets the bocks configuration
+	 * @param Config $blocks
+	 */
+	public function getBlocks()
+	{
+		return $this->blocks;
 	}
 	
 	/**

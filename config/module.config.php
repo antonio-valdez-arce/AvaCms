@@ -28,7 +28,7 @@ return array(
             'avacmsdefault' => array(
 				'type'    => 'Literal',
                 'options' => array(
-                    'route'    => '/avacms',
+                    'route'    => '/',
                     'defaults' => array(
                         '__NAMESPACE__' => 'AvaCms\Mvc\Controller',
                         'controller'    => 'Cms',
@@ -40,7 +40,7 @@ return array(
                     'default' => array(
                         'type'    => 'Segment',
                         'options' => array(
-                            'route'    => '/[:block[/:action]]',
+                            'route'    => '[:block[/:action]]',
                             'constraints' => array(
                                 'block' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
