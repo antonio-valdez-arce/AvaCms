@@ -46,15 +46,15 @@ abstract class AbstractController extends AbstractActionController
 	/**
 	 * Abstract method for listing records of a given table
 	 */
-	abstract public function listAction(){}
+	abstract public function listAction();
 	
 	/**
 	 * Abstract method for saving record into a given table
 	 */
-	abstract public function saveAction(){}
+	abstract public function saveAction();
 	
 	/**
 	 * Abstract method for deleting records from a given table
 	 */
-	abstract public function deleteAction(){}
+	abstract public function deleteAction();
 }

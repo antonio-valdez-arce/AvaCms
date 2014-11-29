@@ -26,32 +26,48 @@ return array(
     'router' => array(
         'routes' => array(
             'avacmsdefault' => array(
-				'type'    => 'Segment',
-				'options' => array(
-					'route'    => '/:block[/:action[/:id]]',
-						'constraints' => array(
-							'block' 	=> '[a-zA-Z][a-zA-Z0-9_-]*',
-							'action'    => '[a-zA-Z][a-zA-Z0-9_-]*',
-							'id'     	=> '[0-9]*',
-            			),
-						'defaults' => array(
-						    'action' => 'list',
-						),
-            		),
+				'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/avacms',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'AvaCms\Mvc\Controller',
+                        'controller'    => 'Cms',
+                        'action'        => 'list',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'default' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/[:block[/:action]]',
+                            'constraints' => array(
+                                'block' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Cms',
+                            ),
+                        ),
+                    ),
+                ),
             ),
         ),
     ),
     
 	'controllers' => array(
 		'factories' => array(
-			'AvaCmsController' => 'AvaCms\Service\CmsControllerFactory',
+			'AvaCms\Mvc\Controller\Cms' => 'AvaCms\Service\CmsControllerFactory',
 		),
+	    'invokables' => array(
+	        
+	    ),
 	),
     
     'service_manager' => array(
         'factories' => array(
-			'AvaCmsBlocks' => 'AvaCms\Service\BlocksFactory',
-        	'AvaCmsTables' => 'AvaCms\Service\TablesFactory',
+			'AvaCms\Service\AvaCmsBlocks' => 'AvaCms\Service\BlocksFactory',
+        	'AvaCms\Service\AvaCmsTables' => 'AvaCms\Service\TablesFactory',
         ),
     ),
 );
