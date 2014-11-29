@@ -16,7 +16,16 @@ class CmsController extends AbstractController
      */
     public function onDispatch(MvcEvent $e)
     {
-    	parent::onDispatch($e);
+    	// call the onDispatch method from the parent
+        parent::onDispatch($e);
+    	
+    	$block_name = $this->params()->fromRoute('block');
+    	$block = $this->getBlocks()->get($block_name);
+    	
+    	$block_table_name = $block->table;
+    	
+    	$table = $this->getTables()->get($block_table_name);
+    	
     }
 	
 	/**
