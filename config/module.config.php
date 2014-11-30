@@ -60,7 +60,7 @@ return array(
 			'AvaCms\Mvc\Controller\Cms' => 'AvaCms\Service\CmsControllerFactory',
 		),
 	    'invokables' => array(
-	        
+	        'AvaCms\Mvc\Controller\Cms',
 	    ),
 	),
     
@@ -68,6 +68,14 @@ return array(
         'factories' => array(
 			'AvaCms\Service\AvaCmsBlocks' => 'AvaCms\Service\BlocksFactory',
         	'AvaCms\Service\AvaCmsTables' => 'AvaCms\Service\TablesFactory',
+            'AvaCms\Service\AvaCmsFormularyProvider' => 'AvaCms\Service\FormularyProviderFactory',
+        ),
+    ),
+    
+    'view_manager' => array(
+//         'base_path' => __DIR__,
+        'template_path_stack' => array(
+            __DIR__ . '/../view',
         ),
     ),
 );

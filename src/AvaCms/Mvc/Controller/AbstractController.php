@@ -6,6 +6,8 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\MvcEvent;
 use Zend\Config\Config;
+use Zend\ServiceManager\AbstractFactoryInterface;
+use AvaCms\Form\FormularyProvider;
 
 /**
  * AbstractController
@@ -23,7 +25,16 @@ abstract class AbstractController extends AbstractActionController
      * @var Config
      */
     protected $blocks;
-	
+    
+    /**
+     * The provider to get the formulary
+     */
+    protected $formularyProvider;
+    
+	/**
+	 * (non-PHPdoc)
+	 * @see \Zend\Mvc\Controller\AbstractActionController::onDispatch()
+	 */
     public function onDispatch(MvcEvent $e)
     {
         if (!$this->zfcUserAuthentication()->hasIdentity()) {
@@ -63,11 +74,27 @@ abstract class AbstractController extends AbstractActionController
 	
 	/**
 	 * Gets the bocks configuration
-	 * @param Config $blocks
 	 */
 	public function getBlocks()
 	{
 		return $this->blocks;
+	}
+	
+	/**
+	 * Sets the formulary provider object
+	 * @param FormularyProvider $formularyProvider
+	 */
+	public function setFormularyProvider( $formularyProvider )
+	{
+	   $this->formularyProvider = $formularyProvider;    
+	}
+	
+	/**
+	 * Gets the formulary provider object
+	 */
+	public function getFormularyProvider()
+	{
+	    return $this->formularyProvider;
 	}
 	
 	/**
@@ -78,7 +105,7 @@ abstract class AbstractController extends AbstractActionController
 	/**
 	 * Abstract method for saving record into a given table
 	 */
-	abstract public function saveAction();
+	abstract public function saveAction( $id );
 	
 	/**
 	 * Abstract method for deleting records from a given table
