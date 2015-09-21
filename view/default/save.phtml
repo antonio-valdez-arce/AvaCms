@@ -1,4 +1,17 @@
 <?php 
     $formulary->prepare();
-    echo $this->form($formulary);
+    echo $this->form()->openTag($formulary);
+    
+    foreach ($formulary as $element) {
+        if ($element->getAttribute('type') == 'submit') {
+            echo $this->formSubmit($element);
+            continue;
+        }
+        echo $this->formLabel()->openTag($element);
+        echo $this->formLabel($element, $element->getLabel());
+        echo $this->formElement($element);
+        echo $this->formLabel()->closeTag();
+    }
+    
+    echo $this->form()->closeTag();
     

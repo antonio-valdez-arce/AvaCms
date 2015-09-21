@@ -18,8 +18,28 @@ class FormularyProvider implements ServiceLocatorAwareInterface
 	{
 	   $form = new Form();
 
-	   $form->add(new Text('name'), array('name' => 'name', 'label' => 'Name'));
-	   $form->add(new Text('surname'));
+	   $table = $this->getServiceLocator()->get('AvaCms\Service\AvaCmsTables')->get($table_name);
+	   
+	   $table_fields = $table->fields;
+        
+	   foreach ( $table_fields as $name => $field )
+	   {
+	       $form->add(array(
+	           'name' => $name,
+	           'type' => $field->type,
+	           'options' => array(
+	               'label' => $name,
+	           ),
+	       ));
+	   }
+	   
+	   $form->add(array(
+	       'name' => 'Submit',
+	       'type' => 'submit',
+	       'attributes' => array(
+	           'value' => 'Submit',
+	       ),
+	   ));
 	   
 	   return $form;
 	} 
